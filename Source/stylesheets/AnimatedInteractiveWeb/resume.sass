@@ -1,0 +1,170 @@
+*
+  // border: solid 1px black
+$colordeepBlue: #02005B
+$colorOrange: #ff7168
+$colorRed: #ff5f5f
+
+body
+  padding: 50px
+  display: flex
+  justify-content: center
+  background-color: $colordeepBlue
+  color: rgba(white,0.95)
+  font-size: 15px
+  line-height: 28px
+  letter-spacing: 1px
+  // align-items: center
+ul
+  padding: 0
+  list-style: none
+h2
+  margin: 0
+  margin-bottom: 25px
+  font-weight: 400
+  &:after
+    content: ""
+    display: inline-block
+    width: 20px
+    height: 8px
+    background-color: $colorOrange
+    margin-left: 10px
+h4
+  margin: 0
+  margin-top: 40px
+  opacity: 0.8
+  font-weight: 400
+a
+  color: white
+  text-decoration: none
+hr
+  border: none
+  border-bottom: 4px solid $colorOrange
+  width: 40%
+  margin-left: 0
+  
+.resume
+  display: flex
+  max-width: 950px
+  border: solid 8px white
+  padding: 50px
+  position: relative
+.left
+  flex: 5
+.right
+  flex: 7
+.left,.right
+  padding: 15px
+.left
+  padding-right: 50px
+  border-right: 1px solid $colorOrange
+.right
+  padding-right: 50px
+  padding-top: 150px
+.decoration
+  width: 300px
+  height: 140px
+  background-image: linear-gradient(135deg,#FF5F5F,#FFFFAE)
+  border-radius: 70px 0px 0px 70px
+  position: absolute
+  right: 0
+  top: 50px
+.listExperience > li
+  display: flex
+  margin-bottom: 10px
+  &:nth-child(1)
+    ul
+      border-color: #ff7168  
+  &:nth-child(2)
+    ul
+      border-color: #ffa582
+  &:nth-child(3)
+    ul
+      border-color: #ffb087  
+  &:nth-child(4)
+    ul
+      border-color: #ffde9e  
+    
+  ul
+    padding-left: 10px
+    border-left: 4px solid white
+    margin-left: 10px
+
+.listSkill
+  display: flex
+  flex-wrap: wrap
+  text-align: center
+  li
+    padding: 5px
+    width: 25%
+    box-sizing: border-box
+    flex-direction: column
+    align-items: center
+.circle
+  width: 50px
+  height: 50px
+  background-color: #fff
+  border-radius: 50%
+  position: relative
+  overflow: hidden
+  background-color: rgba($colorOrange,0.4)
+.circle:after
+  content: ""
+  display: block
+  background-color: $colordeepBlue
+  width: calc(100% - 20px)
+  height: calc(100% - 20px)
+  border-radius: 50%
+  position: relative
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  
+.p90,.p180,.p270,.p360
+  width: 50%
+  height: 50%
+  position: absolute
+  left: 50%
+  top: 0
+  background-color: $colorOrange
+.p180
+  top: 50%
+.p270
+  left: 0
+  top: 50%
+.p360
+  left: 0
+  top: 0
+// list program
+.listProgram
+  li
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: 10px
+  .bar
+    width: 150px
+    height: 8px
+    border: solid 2px $colorOrange
+    border-radius: 5px 
+.value
+  height: 100%
+  width: 60%
+  background-color: #ff7168
+  &.p10
+    width: 10%
+  &.p20
+    width: 20%
+  &.p30
+    width: 30%  
+  &.p40
+    width: 40%  
+  &.p50
+    width: 50%  
+  &.p60
+    width: 60%  
+.btn
+  border: solid 3px #ff7168
+  padding: 5px 20px
+  margin-right: 10px
+  &.fill
+    background-color: #ff7168

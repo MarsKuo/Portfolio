@@ -72,7 +72,7 @@ gulp.task('babel', function () {
     return gulp.src(['./source/javascripts/**/*.js'])
         .pipe($.plumber()) //執行出錯，不中斷
         .pipe($.sourcemaps.init())
-        .pipe($.concat('all.js')) //合併JS
+        //.pipe($.concat('all.js')) //合併JS
         .pipe($.babel({
             presets: ['es2015']
         }))

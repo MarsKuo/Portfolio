@@ -1,10 +1,11 @@
-# Mars Gulp 範例
+# Mars 作品集 範例
 
 ## 安裝環境
 
 本範例是使用 `gulp 3.9.1`，另有使用 Bower 載入前端套件。
 
 ```
+初次使用請輸入下列指令
 npm install gulp -g
 npm install bower -g
 npm install yarn -g   

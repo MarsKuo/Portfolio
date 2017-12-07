@@ -1,0 +1,93 @@
+$colorOrange: #ff7526
+
+*
+  // border: solid 2px black
+  font-family: 微軟正黑體
+html,body
+  background-color: $colorOrange
+  display: flex
+  width: 100%
+  height: 100%
+  margin: 0
+  justify-content: center
+  align-items: center
+  font-size: 14px
+.box
+  width: 380px
+  background-color: #fff
+  box-shadow: 0px 0px 35px rgba(0,0,0,0.3)
+  transition: 0.5s
+  &:hover
+    box-shadow: 5px 5px 60px rgba(0,0,0,0.4)
+    transform: translate(-5px,-5px)
+.top
+  height: 330px
+  position: relative
+  background-image: url(http://www.designwant.com/upload/images/170720-7_01.jpg)
+  background-size: cover
+  .name
+    width: 100%
+    box-sizing: border-box
+    color: #fff
+    font-weight: 300
+    // background-color: rgba(0,0,0,0.4)
+    background: linear-gradient(transparent 0%,black 100%)
+    position: absolute
+    left: 0
+    bottom: 0
+    margin: 0
+    padding: 5px 15px
+    letter-spacing: 2px
+    padding-top: 30px
+    padding-bottom: 15px
+    .smallText
+      font-size: 14px
+  .tag
+    width: 25px
+    height: 50px
+    background-color: $colorOrange
+    float: right
+    margin-right: 20px
+a
+  color: initial
+  text-decoration: initial
+  
+.cirButton
+  width: 50px
+  height: 50px
+  background-color: $colorOrange
+  border-radius: 50%
+  position: absolute
+  right: 30px
+  bottom: -20px
+.bottom
+  padding: 10px 20px 20px 20px 
+  li
+    padding: 5px 0px
+  ul
+    list-style: none
+    padding-left: 0
+  h3 
+    display: inline-block
+    margin: 0
+.buttons
+  margin-top: 30px
+  .btn
+    display: inline-block
+    padding: 10px 25px
+    letter-spacing: 2px
+  .btnNews
+    float: right
+    
+.btnWebSite
+  background-color: $colorOrange
+  transition: 0.5s
+  &:hover
+    background-color: #ff9156
+    
+.btnNews
+  background-color: #fff
+  border: solid 1px #ccc
+  transition: 0.5s
+  &:hover
+    background-color: #eee
