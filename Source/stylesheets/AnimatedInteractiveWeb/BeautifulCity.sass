@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display')
-*
-  font-family: 'Playfair Display','微軟正黑體'
-  border: solid 2px black
+
 @mixin size($w,$h:$w,$bdrs:0)
   width: $w
   height: $h
@@ -33,16 +31,30 @@ $colorWindowGrey: #534d4d
 $roofGradient: linear-gradient(150deg,$colorBlueRoofLight,$colorBlueRoofDark)
 $sceneGradient: linear-gradient(#1D2B49,#1A45A0,#91cdff,#fff)
 
+*,*:before,*:after
+  font-family: 'Playfair Display','微軟正黑體'
+  // border: solid 1px black
+  position: relative
 
 html,body
   +size(100%)
   margin: 0
   +flex
+  background-color: $colorBackground
+  color: white
+  
 .scene
+  cursor: pointer
+  overflow: hidden
   +size(700px,500px,15px)
+  background: $sceneGradient
+  background-size: 100% 300%
+  
+  box-shadow: 0px 0px 30px rgba(black,0.3)
+  
   .lefttopText
     margin-left: 30px
-    margin-right: 30px
+    margin-top: 30px
     h1
       font-size: 36px
       letter-spacing: 3px
@@ -61,4 +73,189 @@ html,body
       opacity: 0.6
     .blueblock
       +size(20px,25px)
+      background-color: $colorShadowBlue
+.building
+  position: absolute
+  right: 0
+  bottom: 0
+  transform: scale(0.95)
 
+[class^="house"]
+  position: absolute
+  bottom: 0
+  right: 0
+.house1
+  z-index: 1
+  +size(180px,200px)
+  background-color: $colorGreyLight
+  box-shadow: inset -50px 0px $colorGreyNormal
+  .window
+    +size(40px,100px,20px)
+    background-color: $colorGreyNormal
+    //圖片往右偏移8px 往下偏移5px
+    box-shadow: inset 8px 5px $colorGreyDark
+    margin-top: 40px
+    margin-left: 70px
+    +flex
+    flex-direction: column
+    .circle
+      +size(20px,20px,50%)
+      background-color: $colorWindowGrey
+      margin: 4px
+      margin-left: 10px
+.house2
+  +size(240px,170px)
+  right: 130px
+  z-index: 2
+  background-color: $colorGreyLight
+  box-shadow: inset 0px 15px $colorShadowBlueLight,inset -72px 0px $colorGreyNormal
+  .door
+    +size(40px,80px,20px 20px 0 0)
+    position: absolute
+    bottom: 0
+    left: 45px
+    background-color: $colorBackground
+    //往右偏移10px(往左距10)，往上 由上往下偏移2px
+    box-shadow: inset 10px 2px $colorShadowBlue
+
+.house3
+  +size(320px,300px)
+  +flex
+  background-color: $colorGreyLight
+  z-index: 0
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
+  .wall
+    flex: 1
+    height: 100%
+    +flex(center,flex-start)
+    .window
+      +size(24px,50px,12px 12px 0 0)
+      margin-top: 30px
+      background-color: $colorBackground
+    &:before
+      content: ""
+      display: block
+      // border: 2px solid #000
+      +size(105%,20px)
+      position: absolute
+      top: -20px
+      left: 50%
+      transform: translateX(-50%)
+      background-color: inherit
+      box-shadow: 0px 0px 10px rgba(black,0.1)
+    @mixin wall($color,$flex,$windowPan:0,$z:1)
+      background-color: $color
+      flex: $flex
+      .window
+        box-shadow: inset $windowPan 2px $colorShadowBlue
+      &:before
+        z-index: $z
+     
+      
+    &:nth-child(1)
+      +wall($colorGreyLight,10,8px)
+    &:nth-child(2)
+      +wall($colorGreyNormal,14,0px,2)
+    &:nth-child(3)
+      +wall($colorGreyDark,10,-8px)
+=helfCir($r)
+  +size($r*2,$r,$r $r 0 0)
+.roof
+  +helfCir(150px)
+  position: absolute
+  top: -170px
+  right: 5px
+  background: $roofGradient
+  .rooftop
+    +helfCir(14px)
+    +abpos(50%,-14px)
+    transform: translateX(-50%)
+    background-color: #fff
+  .cross
+    +size(4px,30px)
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    bottom: 10px
+    background-color: #fff
+    &:before
+      content: ""
+      display: block
+      +size(20px,4px)
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      bottom: 15px
+      background-color: #fff
+.allstars
+  +size(100%)
+  +abpos(0,0)
+  @keyframes falling
+    0%,100%
+      opacity: 0
+    70%
+      opacity: 1
+    0%
+      transform: translate(100px,0)
+    100%
+      transform: translate(0px,200px)
+  [class^='star']
+    background-color: #fff
+    +size(3px,3px,50%)
+    animation: falling 2s infinite
+  @for $i from 1 through 30
+    .star#{$i}
+      $posX: random()*100%
+      $posY: random()*-80% +50%
+      +abpos($posX,$posY)
+      animation-delay: $i * 0.1s
+.remind
+  opacity: 0.2
+  margin-bottom: 10px
+  letter-spacing: 1px
+.dayText
+  display: none
+.sun,.moon
+  +size(50px,50px,50%)
+  +abpos(250px,100px)
+  
+.sun
+  background-color: #ffdd38
+  box-shadow: 0px 0px 20px rgba(#ffdd38,0.5)
+  top: 400px
+  opacity: 0
+.moon
+  animation: moonAppear 2s  both
+  //往右偏移10px，往上偏移10px
+  // box-shadow: inset 10px -10px rgba(white,0.9)
+@keyframes moonAppear
+  0%
+    box-shadow: inset 0px 0px rgba(white,0.9)
+  100%
+    box-shadow: inset 10px -10px rgba(white,0.9)
+
+h1,h5,p,.moon,.sun,.scene,.allstars,.blueblock,.building
+  transition: 2s
+
+input:checked + .scene
+  background-position: 0 100%
+  .nightText
+    display: none
+  .dayText
+    display: block
+  .allstars
+    opacity: 0
+  h1,h5,p
+    color: #222
+  .building
+    filter:brightness(105%)
+  .moon
+    top: -100px
+    opacity: 0
+  .sun
+    top: 100px
+    opacity: 1
+  .blueblock
+    background-color: #fff
+input
+  display: none

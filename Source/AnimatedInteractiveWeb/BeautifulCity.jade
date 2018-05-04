@@ -7,9 +7,38 @@ html(lang="en")
     link(rel="stylesheet", href="../stylesheets/AnimatedInteractiveWeb/BeautifulCity.css")
     title Document
   body
-    .scene
-      .lefttopText
-        .blueblock
-        h5 A DAY<br>On THE ISLAND
-        h1 Agean Sea<br>Night Sky
-        p Mars Test BeautifulCity
+    label
+      .remind Click To Switch Day/Night!
+      input(type="checkbox")
+      .scene
+        .sun
+        .moon
+        .lefttopText
+          .blueblock
+          h5 A DAY<br>On THE ISLAND
+          h1 Agean Sea<br>
+            span.dayText Day Sky
+            span.nightText Night Sky
+          p Mars  <br>Test<br><br>BeautifulCity
+        .allstars
+        - for (var i =0;i<30;i++){
+          div(class="star" + i)
+        - }
+        .building
+          .house1
+            .window
+              .circle
+              .circle
+              .circle
+          .house2
+            .door
+          .house3
+            .wall
+              .window
+            .wall
+              .window
+            .wall
+              .window
+            .roof
+              .rooftop
+                .cross
